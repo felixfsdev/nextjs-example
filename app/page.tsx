@@ -1,9 +1,11 @@
 import Hero from "@/components/Hero";
 import Feature from "@/components/Feature";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
     <main>
+      <Navbar />
       <Hero />
 
       <div className="mx-auto w-full max-w-4xl px-5">

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function Navbar() {
+export default function LandingPageNavbar() {
   const [open, setOpen] = useState(false);
 
   return (

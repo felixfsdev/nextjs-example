@@ -1,12 +1,12 @@
 import Hero from "@/components/Hero";
 import Feature from "@/components/Feature";
-import Navbar from "@/components/Navbar";
+import LandingPageNavbar from "@/components/LandingPageNavbar";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main>
-      <Navbar />
+      <LandingPageNavbar />
       <Hero />
 
       <div className="mx-auto w-full max-w-4xl px-5">

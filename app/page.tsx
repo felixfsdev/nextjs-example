@@ -29,7 +29,7 @@ export default function Home() {
 
         <Feature
           title="From where did you get these images?"
-          image="/images/un-draw-1000.png"
+          image="/images/images.png"
         >
           <p className="text-center">
             <a href="https://undraw.co/">Undraw.co</a>
@@ -41,7 +41,7 @@ export default function Home() {
         <Feature
           title="What about the banner image?"
           text="Oh, that's from Pixabay"
-          image="/images/social-media-carousel.png"
+          image="/images/landing-page.png"
           reverse
         ></Feature>
       </div>

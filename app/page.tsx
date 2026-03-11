@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import Feature from "@/components/Feature";
 import LandingPageNavbar from "@/components/LandingPageNavbar";
 import Footer from "@/components/Footer";
+import ExternalLink from "@/components/ExternalLink";
 
 export default function Home() {
   return (
@@ -31,9 +32,9 @@ export default function Home() {
           title="From where did you get these images?"
           image="/images/images.png"
         >
-          <p className="text-center">
-            <a href="https://undraw.co/">Undraw.co</a>
-          </p>
+          <ExternalLink href="https://undraw.co/" className="text-center">
+            Undraw.co
+          </ExternalLink>
         </Feature>
 
         <hr className="text-gray-300" />

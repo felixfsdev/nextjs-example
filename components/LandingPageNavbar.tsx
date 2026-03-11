@@ -8,7 +8,9 @@ export default function LandingPageNavbar() {
   return (
     <nav className="sticky top-0 w-full bg-white p-2 border-b border-gray-300">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl">Next.js Example</h1>
+        <a href="/" className="text-2xl">
+          Next.js Example
+        </a>
 
         <ul className="hidden md:flex gap-6">
           <a href="/">Home</a>
@@ -22,8 +24,8 @@ export default function LandingPageNavbar() {
       </div>
 
       <div
-        className={`absolute left-0 right-0 bg-white overflow-hidden transition-all duration-300 md:hidden border-b border-gray-300 ${
-          open ? "max-h-40 opacity-100 pt-4" : "max-h-0 opacity-0"
+        className={`absolute left-0 right-0 bg-white overflow-hidden mt-2 transition-all duration-300 md:hidden border-b border-gray-300 ${
+          open ? "max-h-40 pt-4" : "max-h-0"
         }`}
       >
         <ul className="flex flex-col gap-4 p-2">

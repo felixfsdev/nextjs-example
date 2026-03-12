@@ -11,9 +11,3 @@
   --color-primary-active: var(--color-indigo-700);
   --color-on-primary: var(--color-white);
 }
-
-body {
-  background: var(--color-white);
-  color: var(--color-black);
-  font-family: Arial, Helvetica, sans-serif;
-}

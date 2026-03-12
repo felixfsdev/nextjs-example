@@ -10,7 +10,7 @@ type CardProps = {
 
 export default function Card({ image, title, text, children }: CardProps) {
   return (
-    <div className="flex flex-col gap-4 p-4 bg-white rounded text-center text-black border-gray-300 overflow-hidden">
+    <div className="flex flex-col gap-4 p-4 bg-bg rounded text-center border-border overflow-hidden">
       {image && (
         <Image
           src={image}

@@ -16,7 +16,7 @@ export default function LandingPage() {
           image="/images/web-search.png"
         />
 
-        <hr className="text-gray-300" />
+        <hr className="text-border" />
 
         <Feature
           title="Why did you make this?"
@@ -25,7 +25,7 @@ export default function LandingPage() {
           reverse
         />
 
-        <hr className="text-gray-300" />
+        <hr className="text-border" />
 
         <Feature
           title="From where did you get these images?"
@@ -34,7 +34,7 @@ export default function LandingPage() {
           <ExternalLink href="https://undraw.co/">Undraw.co</ExternalLink>
         </Feature>
 
-        <hr className="text-gray-300" />
+        <hr className="text-border" />
 
         <Feature
           title="What about the banner image?"

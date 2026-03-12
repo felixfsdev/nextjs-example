@@ -15,7 +15,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 w-full bg-white p-2 border-b border-gray-300">
+    <nav className="sticky top-0 w-full p-2 border-b bg-bg border-border">
       <div className="flex items-center justify-between">
         <Link href="/" className="text-2xl">
           Next.js Example
@@ -29,7 +29,7 @@ export default function Navbar() {
       </div>
 
       <div
-        className={`absolute left-0 right-0 bg-white overflow-hidden mt-2 transition-all duration-300 md:hidden border-b border-gray-300 ${
+        className={`absolute left-0 right-0 bg-bg overflow-hidden mt-2 transition-all duration-300 md:hidden border-b border-border ${
           open ? "max-h-40 pt-4" : "max-h-0"
         }`}
       >

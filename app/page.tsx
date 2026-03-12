@@ -48,7 +48,7 @@ export default function Home() {
 
       <div className="flex flex-col gap-8 p-8 justify-center items-center w-full bg-primary text-on-primary">
         <h1 className="text-center text-xl">What's in here</h1>
-        <div className="grid gap-8 grid-cols-1 md:grid-cols-3 max-w-4xl">
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-3 max-w-4xl">
           <Card
             image="/images/sweet-home.png"
             title="Home"

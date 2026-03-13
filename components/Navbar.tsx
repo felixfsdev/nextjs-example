@@ -31,7 +31,7 @@ export default function Navbar() {
 
       <div
         className={`absolute left-0 right-0 bg-bg overflow-hidden mt-2 transition-all duration-300 md:hidden border-b border-border ${
-          open ? "max-h-40 pt-4" : "max-h-0"
+          open ? "max-h-60 pt-4" : "max-h-0"
         }`}
       >
         <ul className="flex flex-col gap-4 p-2">{links}</ul>

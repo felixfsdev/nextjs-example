@@ -1,20 +1,20 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 
 type FeatureProps = {
+  image: StaticImageData;
   title: string;
   text?: string;
-  image: string;
-  reverse?: boolean;
   children?: ReactNode;
+  reverse?: boolean;
 };
 
 export default function Feature({
+  image,
   title,
   text,
-  image,
-  reverse = false,
   children,
+  reverse = false,
 }: FeatureProps) {
   return (
     <section
@@ -26,8 +26,6 @@ export default function Feature({
         <Image
           src={image}
           alt="Image"
-          width={500}
-          height={500}
           className="object-contain w-full max-w-xs"
         />
       </div>

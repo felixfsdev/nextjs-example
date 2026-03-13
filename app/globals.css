@@ -14,11 +14,11 @@
 }
 
 .dark {
-  --color-bg: var(--color-gray-900);
-  --color-surface: var(--color-gray-700);
-  --color-text: var(--color-white);
-  --color-text-muted: var(--color-gray-400);
-  --color-border: var(--color-gray-500);
+  --color-bg: rgb(23, 23, 23);
+  --color-surface: rgb(10, 10, 10);
+  --color-text: rgb(227, 227, 227);
+  --color-text-muted: rgb(150, 150, 150);
+  --color-border: rgb(78, 78, 78);
 
   --color-primary: oklch(0.5973 0.1897 279.77);
   --color-primary-hover: oklch(0.5406 0.1897 279.77);

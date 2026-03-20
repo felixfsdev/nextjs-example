@@ -23,6 +23,7 @@ export default function ThemeController() {
 
     html.classList.toggle("dark", prefersDark);
     html.classList.toggle("light", !prefersDark);
+    html.classList.remove("hidden");
   }, [pathname]);
 
   return null;

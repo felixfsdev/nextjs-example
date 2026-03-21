@@ -4,7 +4,6 @@ import Button from "@/components/ui/Button";
 import GithubIcon from "@/components/ui/icons/GitHubIcon";
 import Input from "@/components/ui/Input";
 import { signIn } from "next-auth/react";
-import Link from "next/link";
 
 export default function SignIn() {
   const resendAction = (formData: FormData) => {

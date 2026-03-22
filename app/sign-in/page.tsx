@@ -2,6 +2,7 @@
 
 import Button from "@/components/ui/Button";
 import GithubIcon from "@/components/ui/icons/GitHubIcon";
+import GoogleIcon from "@/components/ui/icons/GoogleIcon";
 import Input from "@/components/ui/Input";
 import { signIn } from "next-auth/react";
 
@@ -22,9 +23,10 @@ export default function SignIn() {
             type="email"
             name="email"
             className="flex-1"
-            placeholder="Email"
+            placeholder="Not supported"
+            disabled
           />
-          <Button type="submit" className="shrink-0 whitespace-nowrap">
+          <Button type="submit" className="shrink-0 whitespace-nowrap" disabled>
             Sign In
           </Button>
         </form>
@@ -38,6 +40,7 @@ export default function SignIn() {
           className="flex items-center justify-center w-full p-1 gap-2 hover:bg-bg-hover hover:cursor-pointer border border-border rounded"
           onClick={() => signIn("google")}
         >
+          <GoogleIcon className="w-4 h-4" />
           Sign in with google
         </button>
 

@@ -3,7 +3,6 @@
 :root {
   --color-bg: var(--color-white);
   --color-bg-hover: var(--color-gray-50);
-  --color-surface: var(--color-gray-100);
   --color-text: var(--color-black);
   --color-text-muted: var(--color-gray-700);
   --color-border: var(--color-gray-300);
@@ -18,7 +17,6 @@
 [data-theme="dark"] {
   --color-bg: rgb(23, 23, 23);
   --color-bg-hover: rgb(26, 26, 26);
-  --color-surface: rgb(62, 62, 62);
   --color-text: rgb(227, 227, 227);
   --color-text-muted: rgb(150, 150, 150);
   --color-border: rgb(78, 78, 78);
@@ -36,7 +34,6 @@
 
   --color-bg: var(--color-bg);
   --color-bg-hover: var(--color-bg-hover);
-  --color-surface: var(--color-surface);
   --color-text: var(--color-text);
   --color-text-muted: var(--color-text-muted);
   --color-border: var(--color-border);

@@ -15,21 +15,19 @@
   --color-primary-disabled: rgb(205, 205, 205);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: rgb(23, 23, 23);
-    --color-bg-hover: rgb(26, 26, 26);
-    --color-surface: rgb(62, 62, 62);
-    --color-text: rgb(227, 227, 227);
-    --color-text-muted: rgb(150, 150, 150);
-    --color-border: rgb(78, 78, 78);
+[data-theme="dark"] {
+  --color-bg: rgb(23, 23, 23);
+  --color-bg-hover: rgb(26, 26, 26);
+  --color-surface: rgb(62, 62, 62);
+  --color-text: rgb(227, 227, 227);
+  --color-text-muted: rgb(150, 150, 150);
+  --color-border: rgb(78, 78, 78);
 
-    --color-primary: oklch(0.5973 0.1897 279.77);
-    --color-primary-hover: oklch(0.5406 0.1897 279.77);
-    --color-primary-active: oklch(0.5181 0.1897 279.77);
-    --color-on-primary: var(--color-white);
-    --color-primary-disabled: rgb(65, 65, 65);
-  }
+  --color-primary: oklch(0.5973 0.1897 279.77);
+  --color-primary-hover: oklch(0.5406 0.1897 279.77);
+  --color-primary-active: oklch(0.5181 0.1897 279.77);
+  --color-on-primary: var(--color-white);
+  --color-primary-disabled: rgb(65, 65, 65);
 }
 
 @theme {

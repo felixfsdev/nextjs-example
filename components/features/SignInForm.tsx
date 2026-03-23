@@ -28,20 +28,20 @@ export default function SignInForm() {
         <hr className="flex-1 text-border" />
       </div>
 
-      <button
-        className="flex items-center justify-center w-full p-1 gap-2 hover:bg-bg-hover hover:cursor-pointer border border-border rounded"
+      <Button
+        variant="secondary"
         onClick={() => signIn("google", { redirectTo: "/home" })}
       >
         <GoogleIcon className="w-4 h-4" />
         Sign in with Google
-      </button>
+      </Button>
 
-      <button
-        className="flex items-center justify-center w-full p-1 gap-2 hover:bg-bg-hover hover:cursor-pointer border border-border rounded"
+      <Button
+        variant="secondary"
         onClick={() => signIn("github", { redirectTo: "/home" })}
       >
         <GitHubIcon className="w-4 h-4" /> Sign in with GitHub
-      </button>
+      </Button>
     </div>
   );
 }

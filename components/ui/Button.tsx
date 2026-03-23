@@ -1,35 +1,41 @@
+"use client";
+
 import { PropsWithChildren, ButtonHTMLAttributes, useState } from "react";
 import clsx from "clsx";
 
 type ButtonProps = PropsWithChildren<{
   className?: string;
+  variant?: "primary" | "secondary";
   disableAfterClick?: boolean;
 }> &
   ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function Button({
   className,
+  variant = "primary",
   disableAfterClick,
   children,
   onClick,
+  disabled,
   ...props
 }: ButtonProps) {
-  const [used, setUsed] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(disabled);
 
   return (
     <button
       className={clsx(
-        "rounded py-1 px-4 cursor-pointer transition-all",
-        "bg-primary hover:bg-primary-hover active:bg-primary-active text-on-primary",
-        "disabled:bg-primary-disabled disabled:cursor-default",
+        "flex justify-center items-center gap-2 rounded py-1 px-4 cursor-pointer transition-all",
+        variant === "primary" &&
+          "bg-primary hover:bg-primary-hover active:bg-primary-active text-on-primary disabled:bg-primary-disabled disabled:cursor-default",
+        variant === "secondary" &&
+          "bg-bg hover:bg-bg-hover border border-border disabled:text-text-muted",
         className,
       )}
-      onClick={(e) => {
-        if (disableAfterClick && used) return;
-        if (disableAfterClick) setUsed(true);
-        onClick?.(e);
+      disabled={isDisabled}
+      onClick={async (e) => {
+        setIsDisabled(true);
+        await onClick?.(e);
       }}
-      disabled={props.disabled || (disableAfterClick && used)}
       {...props}
     >
       {children}

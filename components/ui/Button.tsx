@@ -6,20 +6,19 @@ import clsx from "clsx";
 type ButtonProps = PropsWithChildren<{
   className?: string;
   variant?: "primary" | "secondary";
-  disableAfterClick?: boolean;
+  disableOnClick?: boolean;
 }> &
   ButtonHTMLAttributes<HTMLButtonElement>;
 
 export default function Button({
   className,
   variant = "primary",
-  disableAfterClick,
-  children,
+  disableOnClick = false,
   onClick,
-  disabled,
+  children,
   ...props
 }: ButtonProps) {
-  const [isDisabled, setIsDisabled] = useState(disabled);
+  const [isDisabled, setIsDisabled] = useState(props.disabled ? true : false);
 
   return (
     <button
@@ -33,7 +32,7 @@ export default function Button({
       )}
       disabled={isDisabled}
       onClick={async (e) => {
-        setIsDisabled(true);
+        if (disableOnClick) setIsDisabled(true);
         await onClick?.(e);
       }}
       {...props}

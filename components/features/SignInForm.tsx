@@ -30,6 +30,7 @@ export default function SignInForm() {
 
       <Button
         variant="secondary"
+        disableOnClick
         onClick={() => signIn("google", { redirectTo: "/home" })}
       >
         <GoogleIcon className="w-4 h-4" />
@@ -38,6 +39,7 @@ export default function SignInForm() {
 
       <Button
         variant="secondary"
+        disableOnClick
         onClick={() => signIn("github", { redirectTo: "/home" })}
       >
         <GitHubIcon className="w-4 h-4" /> Sign in with GitHub

@@ -10,6 +10,7 @@ const navContents = (
   <>
     <Link href="/home">Home</Link>
     <Button
+      disableOnClick
       onClick={() => {
         signOut();
       }}

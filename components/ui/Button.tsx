@@ -1,12 +1,21 @@
-import { PropsWithChildren, ButtonHTMLAttributes } from "react";
+import { PropsWithChildren, ButtonHTMLAttributes, useState } from "react";
 import clsx from "clsx";
 
 type ButtonProps = PropsWithChildren<{
   className?: string;
+  disableAfterClick?: boolean;
 }> &
   ButtonHTMLAttributes<HTMLButtonElement>;
 
-export default function Button({ className, children, ...props }: ButtonProps) {
+export default function Button({
+  className,
+  disableAfterClick,
+  children,
+  onClick,
+  ...props
+}: ButtonProps) {
+  const [used, setUsed] = useState(false);
+
   return (
     <button
       className={clsx(
@@ -15,6 +24,12 @@ export default function Button({ className, children, ...props }: ButtonProps) {
         "disabled:bg-primary-disabled disabled:cursor-default",
         className,
       )}
+      onClick={(e) => {
+        if (disableAfterClick && used) return;
+        if (disableAfterClick) setUsed(true);
+        onClick?.(e);
+      }}
+      disabled={props.disabled || (disableAfterClick && used)}
       {...props}
     >
       {children}

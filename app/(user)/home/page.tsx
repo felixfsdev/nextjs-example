@@ -2,16 +2,11 @@
 
 import Article from "@/components/ui/article";
 import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const [message, setMessage] = useState("Loading...");
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    setMounted(true);
     fetch("/api")
       .then((res) => res.json())
       .then((data) => setMessage(data.message));

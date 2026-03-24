@@ -9,10 +9,13 @@ import { ModeToggle } from "../ui/mode-toggle";
 
 const navContents = (
   <>
-    <Link className="hover:text-text-muted" href="/home">
+    <Link
+      className="hover:text-muted-foreground transition-all duration-200"
+      href="/home"
+    >
       Home
     </Link>
-    <Link className="hover:text-text-muted" href="/wip">
+    <Link className="hover:text-muted-foreground transition-all" href="/wip">
       WIP
     </Link>
     <ModeToggle />

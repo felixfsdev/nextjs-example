@@ -13,13 +13,16 @@ export default async function Home() {
       <Article>
         <h1>Homepage</h1>
         <ApiMessage />
-        {/* {session.user.image && (
+        {session.user.image && (
           <Image
             src={session.user.image}
+            width={240}
+            height={240}
             alt="User Avatar"
             referrerPolicy="no-referrer"
+            className="w-25 rounded-full"
           />
-        )} */}
+        )}
       </Article>
     </div>
   );

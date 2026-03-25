@@ -29,6 +29,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -132,33 +142,31 @@ function UserMenu() {
   const { data: session } = useSession();
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="m-0 p-0 rounded-full">
-          {session?.user?.image && (
-            <Image
-              src={session.user.image}
-              width={240}
-              height={240}
-              alt="User Avatar"
-              referrerPolicy="no-referrer"
-              className="w-7 rounded-full"
-            />
-          )}
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuItem>Subscription</DropdownMenuItem>
-        </DropdownMenuGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <Drawer direction="right">
+      <DrawerTrigger>
+        {session?.user?.image && (
+          <Image
+            src={session.user.image}
+            width={240}
+            height={240}
+            alt="User Avatar"
+            referrerPolicy="no-referrer"
+            className="w-7 rounded-full"
+          />
+        )}
+      </DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader>
+          <DrawerTitle>User actions</DrawerTitle>
+          <DrawerDescription>A lkav ko iw lakj wie oiae.</DrawerDescription>
+        </DrawerHeader>
+        <DrawerFooter>
+          <Button>Submit</Button>
+          <DrawerClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </DrawerClose>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
   );
 }

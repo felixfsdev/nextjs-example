@@ -1,5 +1,5 @@
 import Footer from "@/components/layout/footer";
-import Navbar from "@/components/layout/navbar";
+import Navbar from "@/app/(user)/components/navbar/navbar";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 

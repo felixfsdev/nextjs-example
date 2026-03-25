@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { signOut } from "next-auth/react";
+import { SessionProvider, signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "../ui/mode-toggle";
+import { ModeToggle } from "../../../../components/ui/mode-toggle";
 import { Menu, X } from "lucide-react";
+import { UserMenu } from "./user-menu";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -85,6 +86,9 @@ export default function Navbar() {
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
+          <SessionProvider>
+            <UserMenu />
+          </SessionProvider>
         </div>
       </div>
 

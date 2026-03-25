@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useState, useEffect, ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { SessionProvider, signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
@@ -9,6 +8,7 @@ import { ModeToggle } from "../../../components/ui/mode-toggle";
 import { Menu, X } from "lucide-react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -80,20 +80,22 @@ export default function Navbar() {
 function NavContents() {
   return (
     <>
-      <Link
-        className="hover:text-muted-foreground transition-all duration-200"
-        href="/home"
-      >
-        Home
-      </Link>
-      <Link className="hover:text-muted-foreground transition-all" href="/wip">
-        WIP
-      </Link>
-      <Link className="hover:text-muted-foreground transition-all" href="/test">
-        Tests
-      </Link>
+      <NavLink href="/home">Home</NavLink>
+      <NavLink href="/wip">WIP</NavLink>
+      <NavLink href="/test">Tests</NavLink>
       <SignOutButton />
     </>
+  );
+}
+
+function NavLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="hover:underline underline-offset-4 active:text-muted-foreground"
+    >
+      {children}
+    </Link>
   );
 }
 

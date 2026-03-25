@@ -51,13 +51,13 @@ export default function Navbar() {
           </ul>
 
           <ModeToggle />
-          <button
-            className="inline-flex items-center justify-center rounded-md text-foreground hover:bg-accent hover:text-accent-foreground md:hidden"
+          <Button
+            variant="outline"
+            className="md:hidden"
             onClick={() => setOpen(!open)}
-            aria-label="Toggle Menu"
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          </Button>
           <SessionProvider>
             <UserMenu />
           </SessionProvider>

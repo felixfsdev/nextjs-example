@@ -175,7 +175,7 @@ function UserMenuContent() {
             height={240}
             alt="User Avatar"
             referrerPolicy="no-referrer"
-            className="w-20 rounded-full"
+            className="w-20 h-20 rounded-full"
           />
         )}
         <div className="flex flex-col gap-2">

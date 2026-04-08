@@ -81,9 +81,6 @@ function NavContents() {
       <Link href="/test">
         <Button variant="ghost">Test</Button>
       </Link>
-      <Link href="/others">
-        <Button variant="ghost">Others</Button>
-      </Link>
     </>
   );
 }

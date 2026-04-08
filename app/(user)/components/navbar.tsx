@@ -25,16 +25,15 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 w-full z-50">
       <div ref={containerRef}>
-        <div className="relative flex items-center justify-between bg-card md:border-b border-border md:bg-card/90 md:backdrop-blur p-2 z-10">
+        <div className="relative flex items-center justify-start bg-card md:border-b border-border md:bg-card/90 md:backdrop-blur p-2 z-10">
           <Link href="/" className="text-2xl font-bold font-heading">
             Next.js Example
           </Link>
 
-          <div className="flex gap-4 items-center">
-            <ul className="hidden md:flex md:items-center">
-              <NavContents />
-            </ul>
-
+          <ul className="hidden md:flex md:items-center mx-2">
+            <NavContents />
+          </ul>
+          <div className="flex gap-4 ml-auto items-center">
             <ModeToggle />
             <Button
               variant="outline"

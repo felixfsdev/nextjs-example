@@ -2,7 +2,7 @@
 
 import GoogleIcon from "@/components/icons/google-icon";
 import GitHubIcon from "@/components/icons/github-icon";
-import Input from "@/components/ui/input";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { signIn } from "next-auth/react";
 import {

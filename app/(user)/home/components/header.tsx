@@ -9,7 +9,7 @@ export default function Header() {
       <Image
         src={fsImage}
         alt="App Image"
-        className="w-25 rounded-full border-3 border-white shadow-lg mx-auto my-4"
+        className="w-25 rounded-full border-3 border-white shadow-md mx-auto my-4"
       />
       <h1 className="text-2xl">Next.js Example</h1>
       <p className="text-muted-foreground mt-1 mb-3">

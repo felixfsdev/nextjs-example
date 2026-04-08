@@ -37,7 +37,7 @@ export default function UserMenu() {
             height={240}
             alt="User Avatar"
             referrerPolicy="no-referrer"
-            className="w-7 rounded-full"
+            className="w-7 rounded-full transition-all duration-50 hover:outline-3 outline-ring outline-0"
           />
         )}
       </DrawerTrigger>

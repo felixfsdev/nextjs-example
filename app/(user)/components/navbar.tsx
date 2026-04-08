@@ -31,7 +31,7 @@ export default function Navbar() {
           </Link>
 
           <div className="flex gap-4 items-center">
-            <ul className="hidden md:flex md:items-center gap-4">
+            <ul className="hidden md:flex md:items-center">
               <NavContents />
             </ul>
 
@@ -54,7 +54,7 @@ export default function Navbar() {
             open ? "max-h-60 pt-2" : "max-h-0"
           }`}
         >
-          <ul className="flex flex-col gap-4 p-2 pt-0">
+          <ul className="flex flex-col p-2 pt-0">
             <NavContents />
           </ul>
         </div>
@@ -70,8 +70,12 @@ export default function Navbar() {
 function NavContents() {
   return (
     <>
-      <NavLink href="/home">Home</NavLink>
-      <NavLink href="/test">Test</NavLink>
+      <Link href="/home">
+        <Button variant="ghost">Home</Button>
+      </Link>
+      <Link href="/test">
+        <Button variant="ghost">Test</Button>
+      </Link>
     </>
   );
 }
@@ -84,16 +88,5 @@ function NavOverlay({ className }: { className?: string }) {
         className,
       )}
     ></div>
-  );
-}
-
-function NavLink({ href, children }: { href: string; children: ReactNode }) {
-  return (
-    <Link
-      href={href}
-      className="hover:underline underline-offset-4 active:text-muted-foreground"
-    >
-      {children}
-    </Link>
   );
 }

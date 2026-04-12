@@ -20,6 +20,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  posts         Post[]
   // Optional for WebAuthn support
   Authenticator Authenticator[]
  
@@ -66,6 +67,19 @@ model VerificationToken {
   @@id([identifier, token])
 }
  
+// Optional for WebAuthn support
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  content   String?
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  // nothing is stored in 'author', it is just a way to access the author easily
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 // Optional for WebAuthn support
 model Authenticator {
   credentialID         String  @unique

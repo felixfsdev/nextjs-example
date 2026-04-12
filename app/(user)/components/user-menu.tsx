@@ -25,11 +25,14 @@ import {
 } from "@/components/ui/drawer";
 
 export default function UserMenu() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   return (
     <Drawer direction="right">
       <DrawerTrigger>
+        {status === "loading" && (
+          <div className="size-8 rounded-full bg-loading-skeleton animate-pulse" />
+        )}
         {session?.user?.image && (
           <Image
             src={session.user.image}
@@ -37,7 +40,7 @@ export default function UserMenu() {
             height={240}
             alt="User Avatar"
             referrerPolicy="no-referrer"
-            className="w-7 rounded-full"
+            className="size-8 rounded-full border border-border"
           />
         )}
       </DrawerTrigger>

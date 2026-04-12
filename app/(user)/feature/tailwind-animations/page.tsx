@@ -36,16 +36,20 @@ export default function TailwindAnimations() {
             </TableCell>
             <TableCell>
               <div className="flex">
-                <p className="text-xl animate-bounce delay-0">😁</p>
-                <p className="text-xl animate-bounce delay-150">😁</p>
-                <p className="text-xl animate-bounce delay-300">😁</p>
+                <p className="text-xl animate-bounce [animation-delay:-0.3s]">
+                  😘
+                </p>
+                <p className="text-xl animate-bounce [animation-delay:-0.5s]">
+                  😁
+                </p>
+                <p className="text-xl animate-bounce">😋</p>
               </div>
             </TableCell>
           </TableRow>
           <TableRow>
             <TableCell className="font-mono">animate-ping</TableCell>
             <TableCell className="relative">
-              <p className="text-xl absolute animate-ping bottom-2">😶‍🌫️</p>
+              <p className="text-xl absolute animate-ping bottom-2">💀</p>
             </TableCell>
           </TableRow>
           <TableRow>

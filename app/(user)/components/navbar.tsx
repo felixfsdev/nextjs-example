@@ -103,9 +103,15 @@ function NavContents() {
         </Button>
 
         {openMenu && (
-          <div className="absolute left-0 mt-4 w-48 bg-card border border-border rounded-md shadow-lg p-2 z-50">
+          <div className="fixed left-2 mt-1 md:absolute md:left-0 md:mt-4 w-48 bg-card border border-border rounded-md shadow-lg p-2 z-50">
             {featureCards.map((card) => (
-              <Link key={card.title} href={card.href || "#"}>
+              <Link
+                key={card.title}
+                onClick={() => {
+                  setOpenMenu(false);
+                }}
+                href={card.href || "#"}
+              >
                 <div
                   className={cn(
                     "px-3 py-2 rounded hover:bg-accent transition-colors cursor-pointer",
@@ -125,7 +131,7 @@ function NavContents() {
         )}
       </div>
       {navigationMenu.map((item) => (
-        <Link key={item.title} href={item.href}>
+        <Link key={item.title} href={String(item.href)}>
           <Button variant="ghost">{item.title}</Button>
         </Link>
       ))}

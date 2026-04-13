@@ -8,6 +8,7 @@ export default function () {
       <p className="text-muted-foreground text-center">
         Thank you for your contribution 🥰 To maintain quality, posts are
         limited to one per day. Your next submission window opens tomorrow!
+        Delete your today's post to create one right now.
       </p>
       <Link href="/feature/post">
         <Button>Read Posts</Button>

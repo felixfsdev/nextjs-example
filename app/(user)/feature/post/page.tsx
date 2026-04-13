@@ -15,15 +15,28 @@ import { DeletePostDialog } from "./components/delete-post-dialog";
 
 export default async function PostPage() {
   const session = await auth();
+  const adminEmail = "faseeh1080@gmail.com";
 
-  const posts = await prisma.post.findMany({
+  const adminPosts = await prisma.post.findMany({
     where: {
       isApproved: true,
+      author: { email: adminEmail },
     },
-    take: 20,
     orderBy: [{ featured: "desc" }, { createdAt: "desc" }],
     include: { author: true },
   });
+
+  const otherPosts = await prisma.post.findMany({
+    where: {
+      isApproved: true,
+      NOT: { author: { email: adminEmail } },
+    },
+    take: 20 - adminPosts.length,
+    orderBy: [{ featured: "desc" }, { createdAt: "desc" }],
+    include: { author: true },
+  });
+
+  const posts = [...adminPosts, ...otherPosts];
 
   return (
     <div className="flex flex-col gap-6 w-full max-w-5xl mx-auto p-4">
@@ -93,9 +106,7 @@ export default async function PostPage() {
                     )}
                     <span>By {post.author?.name ?? "Unknown author"}</span>
                     {post.featured && <FeaturedBadge />}
-                    {post.author.email === "faseeh1080@gmail.com" && (
-                      <AdminBadge />
-                    )}
+                    {post.author.email === adminEmail && <AdminBadge />}
                   </div>
                   <div className="flex items-center gap-2">
                     <DeletePostDialog

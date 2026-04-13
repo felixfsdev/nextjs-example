@@ -4,6 +4,7 @@ import prisma from "@/lib/prisma";
 import { Trash } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CircleCheckBig } from "lucide-react";
 import {
   Dialog,
   DialogClose,
@@ -14,6 +15,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default async function PostPage() {
   const posts = await prisma.post.findMany({
@@ -79,6 +85,14 @@ export default async function PostPage() {
                       </div>
                     )}
                     <span>By {post.author?.name ?? "Unknown author"}</span>
+                    {post.featured && (
+                      <Tooltip>
+                        <TooltipTrigger>
+                          <CircleCheckBig className="size-4 text-chart-2" />
+                        </TooltipTrigger>
+                        <TooltipContent>Featured</TooltipContent>
+                      </Tooltip>
+                    )}
                   </div>
                   <div className="flex items-center gap-2">
                     <Dialog>

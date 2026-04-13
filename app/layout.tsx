@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito, Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
 const nunito = Nunito({
@@ -33,7 +34,9 @@ export default function RootLayout({
       <body
         className={`bg-background text-foreground ${nunito.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <TooltipProvider>{children}</TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

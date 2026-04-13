@@ -99,21 +99,9 @@ export default async function PostPage() {
                       </div>
                     )}
                     <span>By {post.author?.name ?? "Unknown author"}</span>
-                    {post.featured && (
-                      <Tooltip>
-                        <TooltipTrigger>
-                          <CircleCheckBig className="size-4 text-chart-2" />
-                        </TooltipTrigger>
-                        <TooltipContent>Featured</TooltipContent>
-                      </Tooltip>
-                    )}
+                    {post.featured && <FeaturedBadge />}
                     {post.author.email === "faseeh1080@gmail.com" && (
-                      <Tooltip>
-                        <TooltipTrigger>
-                          <CircleCheckBig className="size-4 text-chart-3" />
-                        </TooltipTrigger>
-                        <TooltipContent>Admin</TooltipContent>
-                      </Tooltip>
+                      <AdminBadge />
                     )}
                   </div>
                   <div className="flex items-center gap-2">
@@ -149,5 +137,27 @@ export default async function PostPage() {
         </div>
       )}
     </div>
+  );
+}
+
+function FeaturedBadge() {
+  return (
+    <Tooltip>
+      <TooltipTrigger>
+        <CircleCheckBig className="size-4 text-chart-2" />
+      </TooltipTrigger>
+      <TooltipContent>Featured</TooltipContent>
+    </Tooltip>
+  );
+}
+
+function AdminBadge() {
+  return (
+    <Tooltip>
+      <TooltipTrigger>
+        <CircleCheckBig className="size-4 text-chart-3" />
+      </TooltipTrigger>
+      <TooltipContent>Admin</TooltipContent>
+    </Tooltip>
   );
 }

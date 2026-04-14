@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, ReactNode } from "react";
 import { usePathname } from "next/navigation";
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider, useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "../../../components/ui/mode-toggle";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -13,6 +13,8 @@ import UserMenu from "./user-menu";
 import { features } from "../config/navigation";
 
 export default function Navbar() {
+  const { data: session } = useSession();
+
   const [open, setOpen] = useState(false);
   const [overlayVisible, setOverlayVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -52,9 +54,15 @@ export default function Navbar() {
             >
               {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
-            <SessionProvider>
-              <UserMenu />
-            </SessionProvider>
+            {!session ? (
+              <Link href="/sign-in">
+                <Button>Sign In</Button>
+              </Link>
+            ) : (
+              <SessionProvider>
+                <UserMenu />
+              </SessionProvider>
+            )}
           </div>
         </div>
 

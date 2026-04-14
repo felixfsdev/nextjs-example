@@ -2,9 +2,14 @@ import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
 import CreatePostForm from "./components/create-post-form";
 import HasPosted from "./components/has-posted";
+import { redirect } from "next/navigation";
 
 export default async function CreatePostPage() {
   const session = await auth();
+
+  if (!session) {
+    redirect("/sign-in");
+  }
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);

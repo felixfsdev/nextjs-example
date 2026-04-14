@@ -22,7 +22,7 @@ export default function SignIn() {
         <CardHeader>
           <CardTitle>Sign in</CardTitle>
           <CardDescription>
-            Before you can open the app, you have to sign in.
+            You have to sign in to access all features.
           </CardDescription>
         </CardHeader>
         <CardContent>

@@ -1,3 +1,4 @@
+import { SessionProvider } from "next-auth/react";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import { auth } from "@/auth";
@@ -8,17 +9,19 @@ export default async function WithNavLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
+  // const session = await auth();
 
-  if (!session?.user) {
-    redirect("/sign-in");
-  }
+  // if (!session?.user) {
+  //   redirect("/sign-in");
+  // }
 
   return (
     <>
-      <Navbar />
-      <div className="w-full min-h-screen">{children}</div>
-      <Footer />
+      <SessionProvider>
+        <Navbar />
+        <div className="w-full min-h-screen">{children}</div>
+        <Footer />
+      </SessionProvider>
     </>
   );
 }

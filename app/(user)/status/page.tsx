@@ -1,5 +1,5 @@
 import { Article, ArticleContainer } from "@/components/layout/article";
-import ApiMessage from "./components/api-message";
+import ApiMessage from "./_components/api-message";
 
 export default function Test() {
   return (

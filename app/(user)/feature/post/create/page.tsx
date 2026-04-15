@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
-import CreatePostForm from "./components/create-post-form";
-import HasPosted from "./components/has-posted";
+import CreatePostForm from "./_components/create-post-form";
+import HasPosted from "./_components/has-posted";
 import { redirect } from "next/navigation";
 
 export default async function CreatePostPage() {

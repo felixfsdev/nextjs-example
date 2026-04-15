@@ -1,6 +1,6 @@
 import { auth } from "@/auth";
-import Header from "./components/header";
-import AppContents from "./components/app-contents";
+import Header from "./_components/header";
+import AppContents from "./_components/app-contents";
 
 export default async function Home() {
   const session = await auth();

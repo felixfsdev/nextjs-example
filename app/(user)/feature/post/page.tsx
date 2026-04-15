@@ -11,7 +11,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { DeletePostDialog } from "./components/delete-post-dialog";
+import { DeletePostDialog } from "./_components/delete-post-dialog";
 import { ArticleContainer } from "@/components/layout/article";
 
 export default async function PostPage() {

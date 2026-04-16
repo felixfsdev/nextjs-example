@@ -1,9 +1,7 @@
 import { Article, ArticleContainer } from "@/components/layout/article";
-import { getCounts } from "./actions";
+import Terminal from "./_components/terminal";
 
 export default async function Test() {
-  const { userCount, postCount } = await getCounts();
-
   return (
     <ArticleContainer>
       <Article>
@@ -13,13 +11,9 @@ export default async function Test() {
           individual services (e.g., API, database, login).
         </p>
       </Article>
-      <div className="rounded-xl bg-gray-800 p-4 my-4 font-mono text-yellow-200">
-        <p>Registered users: {userCount}</p>
-        <p>Uploaded posts: {postCount}</p>
-        <p>
-          Database: {typeof userCount === "number" ? "Working" : "Not working"}
-        </p>
-      </div>
+
+      <Terminal />
+
       <Article>
         <h2>Pending</h2>
         <p>None</p>

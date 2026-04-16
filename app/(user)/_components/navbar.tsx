@@ -92,8 +92,8 @@ function NavContents() {
         <Button variant="ghost">About</Button>
       </Link>
       <FeaturesDropdown />
-      <Link href="/status">
-        <Button variant="ghost">Status</Button>
+      <Link href="/privacy-policy">
+        <Button variant="ghost">Privacy Policy</Button>
       </Link>
     </>
   );

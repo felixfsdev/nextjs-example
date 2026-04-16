@@ -17,10 +17,9 @@ const features: Feature[] = [
     href: "/feature/post",
   },
   {
-    title: "React",
-    description:
-      "React lets you build user interfaces out of individual pieces called components.",
-    href: "/feature/react",
+    title: "Status",
+    description: "Check the status of the website and its services.",
+    href: "/feature/status",
   },
 ];
 

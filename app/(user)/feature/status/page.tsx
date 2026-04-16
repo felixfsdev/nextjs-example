@@ -11,13 +11,7 @@ export default async function Test() {
           individual services (e.g., API, database, login).
         </p>
       </Article>
-
       <Terminal />
-
-      <Article>
-        <h2>Pending</h2>
-        <p>User pages, posts by link.</p>
-      </Article>
     </ArticleContainer>
   );
 }

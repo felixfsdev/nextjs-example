@@ -182,9 +182,65 @@ function UploadProfileImageButton() {
   const [isPending, startTransition] = useTransition();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [croppedPreviewUrl, setCroppedPreviewUrl] = useState<string | null>(
+    null,
+  );
   const [error, setError] = useState<string | null>(null);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const cropImageToSquare = (
+    imageUrl: string,
+    fileType: string,
+  ): Promise<Blob> => {
+    return new Promise((resolve, reject) => {
+      const img = new window.Image();
+      img.crossOrigin = "anonymous";
+      img.onload = () => {
+        const size = Math.min(img.width, img.height);
+        const offsetX = (img.width - size) / 2;
+        const offsetY = (img.height - size) / 2;
+
+        // Downscale to 200x200 for profile pictures
+        const maxDimension = 200;
+        const canvasSize = Math.min(size, maxDimension);
+
+        const canvas = document.createElement("canvas");
+        canvas.width = canvasSize;
+        canvas.height = canvasSize;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) {
+          reject(new Error("Failed to get canvas context"));
+          return;
+        }
+
+        ctx.drawImage(
+          img,
+          offsetX,
+          offsetY,
+          size,
+          size,
+          0,
+          0,
+          canvasSize,
+          canvasSize,
+        );
+        canvas.toBlob(
+          (blob) => {
+            if (blob) {
+              resolve(blob);
+            } else {
+              reject(new Error("Failed to create blob from canvas"));
+            }
+          },
+          fileType,
+          0.7, // 70% quality to reduce file size
+        );
+      };
+      img.onerror = () => reject(new Error("Failed to load image"));
+      img.src = imageUrl;
+    });
+  };
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       // Validate file type
@@ -209,8 +265,30 @@ function UploadProfileImageButton() {
       }
 
       setError(null);
-      setSelectedFile(file);
-      setPreviewUrl(URL.createObjectURL(file));
+      const previewUrl = URL.createObjectURL(file);
+      setPreviewUrl(previewUrl);
+
+      try {
+        const croppedBlob = await cropImageToSquare(previewUrl, file.type);
+
+        // Validate cropped file size
+        if (croppedBlob.size > maxSize) {
+          setError(
+            "Cropped image too large. Maximum size is 100KB. Try a smaller image.",
+          );
+          return;
+        }
+
+        const croppedFile = new File([croppedBlob], file.name, {
+          type: file.type,
+        });
+        setSelectedFile(croppedFile);
+        setCroppedPreviewUrl(URL.createObjectURL(croppedBlob));
+      } catch (err) {
+        setError(
+          err instanceof Error ? err.message : "Failed to process image",
+        );
+      }
     }
   };
 
@@ -237,6 +315,7 @@ function UploadProfileImageButton() {
         setOpen(false);
         setSelectedFile(null);
         setPreviewUrl(null);
+        setCroppedPreviewUrl(null);
         window.location.reload();
       } catch (err) {
         setError(err instanceof Error ? err.message : "Failed to upload image");
@@ -258,7 +337,7 @@ function UploadProfileImageButton() {
           <DialogTitle>Upload Profile Image</DialogTitle>
           <DialogDescription>
             Choose a new profile image. JPEG, PNG, WebP, and GIF up to 100KB are
-            supported.
+            supported. The image will be cropped to a square.
           </DialogDescription>
         </DialogHeader>
 
@@ -270,15 +349,16 @@ function UploadProfileImageButton() {
             disabled={isPending}
           />
 
-          {previewUrl && (
+          {croppedPreviewUrl && (
             <div className="flex justify-center">
-              <Image
-                src={previewUrl}
-                width={120}
-                height={120}
-                alt="Preview"
-                className="w-30 h-30 rounded-full object-cover"
-              />
+              <div className="relative w-24 h-24 bg-muted rounded border border-border overflow-hidden">
+                <Image
+                  src={croppedPreviewUrl}
+                  fill
+                  alt="Square preview"
+                  className="object-cover"
+                />
+              </div>
             </div>
           )}
 

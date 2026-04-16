@@ -1,6 +1,9 @@
 import { Article, ArticleContainer } from "@/components/layout/article";
 import ErrorPage from "@/components/layout/error-page";
+import { Button } from "@/components/ui/button";
 import prisma from "@/lib/prisma";
+import Link from "next/link";
+import Image from "next/image";
 
 export default async function PostPage({
   params,
@@ -24,6 +27,21 @@ export default async function PostPage({
         <h1>{post!.title}</h1>
         <p className="text-muted-foreground text-sm">By {post.author.name}</p>
         <p>{post.content}</p>
+        <hr />
+        <h1>Thanks for reading</h1>
+        <p>Big thanks to {post.author.name} for his contribution!</p>
+        <Image
+          src={String(post.author.image)}
+          alt="Author Image"
+          width={125}
+          height={125}
+          className="rounded-full"
+        />
+        <Link href="/feature/post">
+          <Button variant="link" className="px-0">
+            Read More
+          </Button>
+        </Link>
       </Article>
     </ArticleContainer>
   );

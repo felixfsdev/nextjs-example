@@ -92,6 +92,11 @@ function NavContents() {
         <Button variant="ghost">About</Button>
       </Link>
       <FeaturesDropdown />
+      {features.map((card) => (
+        <Link key={card.title} className="md:hidden" href={String(card.href)}>
+          <Button variant="ghost">{card.title}</Button>
+        </Link>
+      ))}
       <Link href="/privacy-policy">
         <Button variant="ghost">Privacy Policy</Button>
       </Link>
@@ -106,7 +111,7 @@ function FeaturesDropdown() {
   useOnClickOutside(menuRef, () => setOpenMenu(false));
 
   return (
-    <div ref={menuRef} className="relative">
+    <div ref={menuRef} className="relative hidden md:block">
       <Button
         variant="ghost"
         onClick={() => setOpenMenu(!openMenu)}

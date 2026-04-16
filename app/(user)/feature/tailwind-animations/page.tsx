@@ -1,6 +1,7 @@
 import { Article, ArticleContainer } from "@/components/layout/article";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Spinner } from "@/components/ui/spinner";
 import {
   Table,
   TableBody,
@@ -87,16 +88,23 @@ export default function TailwindAnimations() {
 
         <h3>Animate ping</h3>
         <p>Animate ping is generally used for notifications and badges.</p>
-        <span className="relative flex size-3">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
-          <span className="relative inline-flex size-3 rounded-full bg-sky-500"></span>
-        </span>
+        <Button variant="outline" className="relative w-min">
+          I'm Important
+          <span className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 flex size-3">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
+            <span className="absolute inline-flex size-3 rounded-full bg-admin-badge"></span>
+          </span>
+        </Button>
 
         <h3>Animate bounce</h3>
         <p>This can be used for things like arrow buttons.</p>
         <Button variant="outline" size="icon" className="animate-bounce">
           <ArrowBigDown />
         </Button>
+
+        <h3>Animate spin</h3>
+        <p>The Shadcn spinner component uses animate-spin internally.</p>
+        <Spinner />
       </Article>
     </ArticleContainer>
   );

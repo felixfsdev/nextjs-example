@@ -1,4 +1,6 @@
 import { Article, ArticleContainer } from "@/components/layout/article";
+import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   Table,
   TableBody,
@@ -7,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { ArrowBigDown } from "lucide-react";
 
 export default function TailwindAnimations() {
   return (
@@ -73,6 +76,27 @@ export default function TailwindAnimations() {
           <div className="w-min text-xl animate-spin">😵</div>
         </div>
         <p>But you should put the content in nested divs.</p>
+
+        <h2>Common usages</h2>
+
+        <h3>Animate pulse</h3>
+        <p>Animate pulse is commonly used for creating loading skeletons.</p>
+        <Skeleton className="w-50 h-8" />
+        <Skeleton className="w-80 h-4" />
+        <Skeleton className="w-30 h-4" />
+
+        <h3>Animate ping</h3>
+        <p>Animate ping is generally used for notifications and badges.</p>
+        <span className="relative flex size-3">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
+          <span className="relative inline-flex size-3 rounded-full bg-sky-500"></span>
+        </span>
+
+        <h3>Animate bounce</h3>
+        <p>This can be used for things like arrow buttons.</p>
+        <Button variant="outline" size="icon" className="animate-bounce">
+          <ArrowBigDown />
+        </Button>
       </Article>
     </ArticleContainer>
   );

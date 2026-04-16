@@ -28,8 +28,11 @@ export default async function PostPage({
         <p className="text-muted-foreground text-sm">By {post.author.name}</p>
         <p>{post.content}</p>
         <hr />
-        <h1>Thanks for reading</h1>
-        <p>Big thanks to {post.author.name} for his contribution!</p>
+        <h2>Thanks for reading</h2>
+        <p>
+          Big thanks to <span className="font-bold">{post.author.name}</span>{" "}
+          for his contribution!
+        </p>
         <Image
           src={String(post.author.image)}
           alt="Author Image"

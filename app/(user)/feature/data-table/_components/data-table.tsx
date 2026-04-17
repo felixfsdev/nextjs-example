@@ -15,25 +15,38 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-export type Payment = {
+export type PostRow = {
   id: string;
-  amount: number;
-  status: "pending" | "processing" | "success" | "failed";
-  email: string;
+  title: string;
+  author: string;
+  featured: boolean;
+  isApproved: boolean;
+  createdAt: string;
 };
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<PostRow>[] = [
   {
-    accessorKey: "status",
-    header: "Status",
+    accessorKey: "title",
+    header: "Title",
   },
   {
-    accessorKey: "email",
-    header: "Email",
+    accessorKey: "author",
+    header: "Author",
   },
   {
-    accessorKey: "amount",
-    header: "Amount",
+    accessorKey: "featured",
+    header: "Featured",
+    cell: ({ getValue }) => (getValue() ? "Yes" : "No"),
+  },
+  {
+    accessorKey: "isApproved",
+    header: "Approved",
+    cell: ({ getValue }) => (getValue() ? "Yes" : "No"),
+  },
+  {
+    accessorKey: "createdAt",
+    header: "Created",
+    cell: ({ getValue }) => new Date(getValue() as string).toLocaleString(),
   },
 ];
 

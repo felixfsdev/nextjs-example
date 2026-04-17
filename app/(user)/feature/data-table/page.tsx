@@ -1,17 +1,32 @@
 import { Article, ArticleContainer } from "@/components/layout/article";
-import { DataTable, Payment, columns } from "./_components/data-table";
+import prisma from "@/lib/prisma";
+import { DataTable, PostRow, columns } from "./_components/data-table";
 
-async function getData(): Promise<Payment[]> {
-  // Fetch data from your API here.
-  return [
-    {
-      id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
+async function getData(): Promise<PostRow[]> {
+  const posts = await prisma.post.findMany({
+    orderBy: { createdAt: "desc" },
+    select: {
+      id: true,
+      title: true,
+      featured: true,
+      isApproved: true,
+      createdAt: true,
+      author: {
+        select: {
+          name: true,
+        },
+      },
     },
-    // ...
-  ];
+  });
+
+  return posts.map((post) => ({
+    id: post.id,
+    title: post.title,
+    author: post.author?.name ?? "Unknown",
+    featured: post.featured,
+    isApproved: post.isApproved,
+    createdAt: post.createdAt.toISOString(),
+  }));
 }
 
 export default async function DemoPage() {
@@ -20,9 +35,10 @@ export default async function DemoPage() {
   return (
     <ArticleContainer>
       <Article>
-        <h1>Data table</h1>
+        <h1>Posts data table</h1>
         <p>
-          Data table is a Shadcn component that displays data in a table format.
+          This table displays rows from the Post model, including author,
+          approval status, and creation time.
         </p>
         <DataTable columns={columns} data={data} />
       </Article>

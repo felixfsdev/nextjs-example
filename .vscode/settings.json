@@ -2,5 +2,6 @@
   "tailwindCSS.classFunctions": ["cva", "cn", "clsx", "twMerge", "variant"],
   "editor.quickSuggestions": {
     "strings": "on"
-  }
+  },
+"css.lint.unknownAtRules": "ignore"
 }

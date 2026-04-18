@@ -10,13 +10,14 @@ export default function About() {
           This is a Next.js application bootstrapped with
           <span className="font-mono"> create-next-app </span>, deployed on
           Vercel. It uses Auth.js for authentication, Prisma PostgreSQL as a
-          database, Prisma as an ORM, and Shadcn for UI components.
+          database, Prisma as an ORM, framer-motion for animations, and Shadcn
+          for UI components.
         </p>
         <a href="https://github.com/faseehfs/nextjs-example">
           <Button variant="outline">View Source Code</Button>
         </a>
         <h2>What is Next.js</h2>
-        <p className="text-muted-foreground">From Wikipedia</p>
+        <p className="text-muted-foreground text-sm">From Wikipedia</p>
         <p>
           Next.js is an open-source full-stack web development framework created
           by the private company Vercel providing React-based web applications

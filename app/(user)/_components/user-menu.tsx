@@ -345,11 +345,11 @@ function UploadProfileImageButton() {
 
           {croppedPreviewUrl && (
             <div className="flex justify-center">
-              <div className="relative w-24 h-24 bg-muted rounded border border-border overflow-hidden">
+              <div className="relative w-24 h-24 bg-muted rounded-full border overflow-hidden">
                 <Image
                   src={croppedPreviewUrl}
                   fill
-                  alt="Square preview"
+                  alt="Preview"
                   className="object-cover"
                 />
               </div>

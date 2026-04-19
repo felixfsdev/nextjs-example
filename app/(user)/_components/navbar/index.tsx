@@ -4,13 +4,13 @@ import { useState, useEffect, useRef, ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { SessionProvider, useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "../../../components/ui/mode-toggle";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
 import { cn } from "@/lib/utils";
 import UserMenu from "./user-menu";
-import features from "../config/feature";
+import features from "../../config/feature";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Navbar() {

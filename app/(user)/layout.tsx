@@ -1,8 +1,6 @@
 import { SessionProvider } from "next-auth/react";
 import Footer from "./_components/footer";
 import Navbar from "./_components/navbar";
-import { auth } from "@/auth";
-import { redirect } from "next/navigation";
 
 export default async function WithNavLayout({
   children,

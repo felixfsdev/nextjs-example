@@ -41,7 +41,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { changeUsername, updateProfileImage } from "../(landing)/actions";
+import { changeUsername, updateProfileImage } from "../../../(landing)/actions";
 import Link from "next/link";
 import { Camera, Loader2, LogOut, UserPen } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";

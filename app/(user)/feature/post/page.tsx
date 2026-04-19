@@ -97,10 +97,10 @@ export default async function PostPage() {
                     {post.author.email === adminEmail && <AdminBadge />}
                   </div>
                   <div className="flex items-center gap-2">
+                    {new Date(post.createdAt).toLocaleString()}
                     <Link href={`/feature/post/${post.id}`}>
                       <ArrowUpRight className="size-4" />
                     </Link>
-                    {new Date(post.createdAt).toLocaleString()}
                   </div>
                 </div>
               </CardContent>

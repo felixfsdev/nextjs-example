@@ -32,8 +32,8 @@ export default function Loading() {
                   <Skeleton className="h-4 w-24" /> {/* Author Name */}
                 </div>
                 <div className="flex items-center gap-2">
-                  <Skeleton className="h-4 w-4" /> {/* Trash Icon */}
                   <Skeleton className="h-4 w-32" /> {/* Date */}
+                  <Skeleton className="h-4 w-4" /> {/* Icon */}
                 </div>
               </div>
             </CardContent>

@@ -92,7 +92,7 @@ export default function TailwindAnimations() {
           I'm Important
           <span className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 flex size-3">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
-            <span className="absolute inline-flex size-3 rounded-full bg-admin-badge"></span>
+            <span className="absolute inline-flex size-3 rounded-full bg-sky-400"></span>
           </span>
         </Button>
 

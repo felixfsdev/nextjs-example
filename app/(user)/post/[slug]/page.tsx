@@ -36,7 +36,7 @@ export default async function PostPage({
             <TriangleAlert className="size-4" />
             <p>
               Warning: This post was removed from the public feed. You better{" "}
-              <Link href="/feature/post" className="underline">
+              <Link href="/post" className="underline">
                 go back
               </Link>
               .
@@ -60,7 +60,7 @@ export default async function PostPage({
               height={71}
               className="rounded-full border"
             />
-            <Link href="/feature/post">
+            <Link href="/post">
               <Button variant="link" className="px-0">
                 Read More
               </Button>

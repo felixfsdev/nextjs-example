@@ -31,7 +31,7 @@ export default function CreatePostForm() {
       await createPost({ title, content });
       setIsSubmitted(true);
       // Redirect
-      router.push("/feature/post");
+      router.push("/post");
     } catch (error) {
       console.error("Failed to create post:", error);
       setErrorMessage(

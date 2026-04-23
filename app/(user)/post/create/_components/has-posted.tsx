@@ -10,7 +10,7 @@ export default function () {
         limited to one per day. Your next submission window opens tomorrow!
         Delete your today's post to create one right now.
       </p>
-      <Link href="/feature/post">
+      <Link href="/post">
         <Button>Read Posts</Button>
       </Link>
     </div>

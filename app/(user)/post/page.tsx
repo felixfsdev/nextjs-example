@@ -35,7 +35,7 @@ export default async function PostPage() {
             Browse recent posts created by users.
           </p>
         </div>
-        <Link href="/create" className="self-start">
+        <Link href="/post/create" className="self-start">
           <Button>Create Post</Button>
         </Link>
       </div>

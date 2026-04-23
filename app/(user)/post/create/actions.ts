@@ -40,5 +40,5 @@ export async function createPost(data: { title: string; content: string }) {
     data: { title, content, authorId: session.user.id },
   });
 
-  revalidatePath("/feature/post");
+  revalidatePath("/post");
 }

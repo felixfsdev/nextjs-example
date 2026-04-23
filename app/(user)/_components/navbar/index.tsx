@@ -84,11 +84,11 @@ export default function Navbar() {
 function NavContents() {
   return (
     <>
-      <Link href="/">
-        <Button variant="ghost">Read</Button>
+      <Link href="/post">
+        <Button variant="ghost">Read Posts</Button>
       </Link>
-      <Link href="/create">
-        <Button variant="ghost">Create</Button>
+      <Link href="/post/create">
+        <Button variant="ghost">Create Post</Button>
       </Link>
       <Link href="/about">
         <Button variant="ghost">About</Button>

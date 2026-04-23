@@ -1,4 +1,4 @@
-import { Article, ArticleContainer } from "@/components/layout/article";
+import { Prose, StandardContainer } from "@/components/layout/prose";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Spinner } from "@/components/ui/spinner";
@@ -14,8 +14,8 @@ import { ArrowBigDown } from "lucide-react";
 
 export default function TailwindAnimations() {
   return (
-    <ArticleContainer>
-      <Article>
+    <StandardContainer>
+      <Prose>
         <h1>Tailwind animations</h1>
         <p>
           Tailwind provides utility classes to animate your elements easily.
@@ -105,7 +105,7 @@ export default function TailwindAnimations() {
         <h3>Animate spin</h3>
         <p>The Shadcn spinner component uses animate-spin internally.</p>
         <Spinner />
-      </Article>
-    </ArticleContainer>
+      </Prose>
+    </StandardContainer>
   );
 }

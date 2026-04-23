@@ -1,6 +1,6 @@
 "use client";
 
-import { Article, ArticleContainer } from "@/components/layout/article";
+import { Prose, StandardContainer } from "@/components/layout/prose";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import Image from "next/image";
@@ -9,8 +9,8 @@ export default function PlaygroundPage() {
   const [imgSrc, setImgSrc] = useState<string | null>(null);
 
   return (
-    <ArticleContainer>
-      <Article>
+    <StandardContainer>
+      <Prose>
         <h1>Image input</h1>
         <p>
           <code>&lt;Input /&gt;</code> can accept files as well as text.
@@ -75,7 +75,7 @@ export default function PlaygroundPage() {
             <p className="text-muted-foreground text-sm">No image selected</p>
           </div>
         )}
-      </Article>
-    </ArticleContainer>
+      </Prose>
+    </StandardContainer>
   );
 }

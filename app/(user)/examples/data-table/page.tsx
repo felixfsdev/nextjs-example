@@ -1,4 +1,4 @@
-import { Article, ArticleContainer } from "@/components/layout/article";
+import { Prose, StandardContainer } from "@/components/layout/prose";
 import prisma from "@/lib/prisma";
 import { DataTable, PostRow, columns } from "./_components/data-table";
 
@@ -33,15 +33,15 @@ export default async function DemoPage() {
   const data = await getData();
 
   return (
-    <ArticleContainer>
-      <Article>
+    <StandardContainer>
+      <Prose>
         <h1>Posts data table</h1>
         <p>
           This table displays rows from the Post model, including author,
           approval status, and creation time.
         </p>
         <DataTable columns={columns} data={data} />
-      </Article>
-    </ArticleContainer>
+      </Prose>
+    </StandardContainer>
   );
 }

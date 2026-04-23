@@ -1,6 +1,6 @@
 import Link from "next/link";
 import prisma from "@/lib/prisma";
-import { ArticleContainer } from "@/components/layout/article";
+import { StandardContainer } from "@/components/layout/prose";
 
 export default async function RemovedPostsPage() {
   const posts = await prisma.post.findMany({
@@ -13,7 +13,7 @@ export default async function RemovedPostsPage() {
   });
 
   return (
-    <ArticleContainer>
+    <StandardContainer>
       <div className="mb-4">
         <h1 className="text-3xl font-semibold tracking-tight">Removed posts</h1>
         <p className="text-sm text-muted-foreground mt-2">
@@ -41,6 +41,6 @@ export default async function RemovedPostsPage() {
           ))}
         </div>
       )}
-    </ArticleContainer>
+    </StandardContainer>
   );
 }

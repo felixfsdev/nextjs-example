@@ -11,7 +11,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { ArticleContainer } from "@/components/layout/article";
+import { StandardContainer } from "@/components/layout/prose";
 
 export default async function PostPage() {
   const session = await auth();
@@ -27,7 +27,7 @@ export default async function PostPage() {
   });
 
   return (
-    <ArticleContainer>
+    <StandardContainer>
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-4">
         <div>
           <h1 className="text-3xl font-semibold tracking-tight">Posts</h1>
@@ -115,7 +115,7 @@ export default async function PostPage() {
           </p>
         </div>
       )}
-    </ArticleContainer>
+    </StandardContainer>
   );
 }
 

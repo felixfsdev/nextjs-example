@@ -17,3 +17,4 @@ The following VS Code configuration ensures the extension recognizes and provide
 - Next.js: <https://nextjs.org/docs>
 - Auth.js: <https://authjs.dev/getting-started>
 - Prisma: <https://www.prisma.io/docs>
+- Typography: <https://github.com/tailwindlabs/tailwindcss-typography>

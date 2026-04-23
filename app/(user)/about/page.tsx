@@ -1,10 +1,10 @@
-import { Article, ArticleContainer } from "@/components/layout/article";
+import { Prose, StandardContainer } from "@/components/layout/prose";
 import { Button } from "@/components/ui/button";
 
 export default function About() {
   return (
-    <ArticleContainer>
-      <Article>
+    <StandardContainer>
+      <Prose>
         <h1>About</h1>
         <p>
           This is a Next.js application bootstrapped with
@@ -33,7 +33,7 @@ export default function About() {
           content in the client-side browser, Next.js extends this functionality
           to include applications rendered on the server-side.
         </p>
-      </Article>
-    </ArticleContainer>
+      </Prose>
+    </StandardContainer>
   );
 }

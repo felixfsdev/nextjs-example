@@ -1,4 +1,4 @@
-import { Article, ArticleContainer } from "@/components/layout/article";
+import { Prose, StandardContainer } from "@/components/layout/prose";
 import ErrorPage from "@/components/layout/error-page";
 import { Button } from "@/components/ui/button";
 import prisma from "@/lib/prisma";
@@ -27,8 +27,8 @@ export default async function PostPage({
   }
 
   return (
-    <ArticleContainer>
-      <Article>
+    <StandardContainer>
+      <Prose>
         <h1>{post!.title}</h1>
         <p className="text-muted-foreground text-sm">By {post.author.name}</p>
         {!post.isApproved && (
@@ -76,7 +76,7 @@ export default async function PostPage({
             <DeletePostDialog postId={post.id} />
           </>
         )}
-      </Article>
-    </ArticleContainer>
+      </Prose>
+    </StandardContainer>
   );
 }

@@ -1,10 +1,10 @@
-import { Article, ArticleContainer } from "@/components/layout/article";
+import { Prose, StandardContainer } from "@/components/layout/prose";
 import ExternalLink from "@/components/ui/external-link";
 
 export default function PrivacyPolicyPage() {
   return (
-    <ArticleContainer>
-      <Article>
+    <StandardContainer>
+      <Prose>
         <h1>Privacy policy</h1>
         <p className="text-muted-foreground text-sm">
           Last Updated: April 2026
@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
           </ExternalLink>
           .
         </p>
-      </Article>
-    </ArticleContainer>
+      </Prose>
+    </StandardContainer>
   );
 }

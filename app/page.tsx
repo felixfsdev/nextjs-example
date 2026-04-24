@@ -9,7 +9,7 @@ export default function LandingPage() {
         <p className="text-muted-foreground text-center">Welcome to</p>
         <h1 className="text-2xl text-center">Posts</h1>
       </div>
-      <Link href="/post" className="mb-[2vh]">
+      <Link href="/post">
         <Button>Let's Read</Button>
       </Link>
     </CenterContainer>

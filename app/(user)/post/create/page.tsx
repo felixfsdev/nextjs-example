@@ -26,7 +26,7 @@ export default async function CreatePostPage() {
 
   return (
     <CenterContainer>
-      <div className="w-full max-w-2xl p-4">
+      <div className="w-full max-w-2xl p-2 sm:p-4">
         {hasPostedToday ? <HasPosted /> : <CreatePostForm />}
       </div>
     </CenterContainer>

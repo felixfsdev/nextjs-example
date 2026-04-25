@@ -7,6 +7,11 @@
 1. Run `npx prisma generate` to generate the prisma client.
 2. Run `npx vercel env pull` to download environment variables.
 
+## Recommended VS Code extensions
+
+- Prettier
+- Tailwind
+
 ## Tips
 
 The following VS Code configuration ensures the extension recognizes and provides autocomplete suggestions for classes nested within functions like `cva` or `cn`. Without it, IntelliSense will only trigger in standard `className` strings.

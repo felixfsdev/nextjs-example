@@ -15,7 +15,6 @@ import { ProseContainer } from "@/components/typography/prose";
 
 export default async function PostPage() {
   const session = await auth();
-  const adminEmail = "faseeh1080@gmail.com";
 
   const posts = await prisma.post.findMany({
     where: {
@@ -92,7 +91,7 @@ export default async function PostPage() {
                     )}
                     <span>By {post.author?.name ?? "Unknown author"}</span>
                     {post.featured && <FeaturedBadge />}
-                    {post.author.email === adminEmail && <AdminBadge />}
+                    {/* {post.author.email === adminEmail && <AdminBadge />} */}
                   </div>
                   <div className="flex items-center justify-between md:justify-end gap-2">
                     {new Date(post.createdAt).toLocaleString()}

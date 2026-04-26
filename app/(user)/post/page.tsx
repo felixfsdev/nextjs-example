@@ -119,7 +119,7 @@ export default async function PostPage({ searchParams }: PostPageProps) {
             </Card>
           ))}
           {totalPages > 1 && (
-            <div className="flex items-center justify-center gap-2 mt-8">
+            <div className="flex items-center justify-center gap-2 my-4">
               {page > 1 ? (
                 <Link href={`/post?page=${page - 1}`}>
                   <Button variant="ghost" size="sm">

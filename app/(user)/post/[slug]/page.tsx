@@ -40,8 +40,18 @@ export default async function PostPage({
         <h1>{post!.title}</h1>
         <div className="not-prose flex items-center gap-2 text-muted-foreground text-sm">
           <p>By {post.author.name}</p>
-          {post.author.role === Role.ADMIN && <AdminBadge />}
-          {post.featured && <FeaturedBadge />}
+          {post.author.role === Role.ADMIN && (
+            <>
+              <AdminBadge />
+              <p>Admin</p>
+            </>
+          )}
+          {post.featured && (
+            <>
+              <FeaturedBadge />
+              <p>Featured</p>
+            </>
+          )}
         </div>
         {!post.isApproved && <PostRemovedCard />}
         <p style={{ whiteSpace: "pre-line" }}>{post.content}</p>

@@ -8,17 +8,35 @@ import { ProseContainer } from "@/components/typography/prose";
 import { AdminBadge, FeaturedBadge } from "@/components/ui/badges";
 import { Role } from "@/prisma/src/generated/prisma/enums";
 
-export default async function PostPage() {
-  const session = await auth();
+interface PostPageProps {
+  searchParams: Promise<{ page?: string }>;
+}
 
-  const posts = await prisma.post.findMany({
-    where: {
-      isApproved: true,
-    },
-    take: 20,
-    orderBy: [{ featured: "desc" }, { createdAt: "desc" }],
-    include: { author: true },
-  });
+export default async function PostPage({ searchParams }: PostPageProps) {
+  const session = await auth();
+  const params = await searchParams;
+  const page = parseInt(params.page || "1", 10);
+  const limit = 10;
+  const skip = (page - 1) * limit;
+
+  const [posts, totalPosts] = await Promise.all([
+    prisma.post.findMany({
+      where: {
+        isApproved: true,
+      },
+      take: limit,
+      skip,
+      orderBy: [{ featured: "desc" }, { createdAt: "desc" }],
+      include: { author: true },
+    }),
+    prisma.post.count({
+      where: {
+        isApproved: true,
+      },
+    }),
+  ]);
+
+  const totalPages = Math.ceil(totalPosts / limit);
 
   return (
     <ProseContainer>
@@ -100,6 +118,48 @@ export default async function PostPage() {
               </CardContent>
             </Card>
           ))}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-center gap-2 mt-8">
+              {page > 1 ? (
+                <Link href={`/post?page=${page - 1}`}>
+                  <Button variant="outline" size="sm">
+                    Previous
+                  </Button>
+                </Link>
+              ) : (
+                <Button variant="outline" size="sm" disabled>
+                  Previous
+                </Button>
+              )}
+
+              {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                const pageNum = Math.max(1, page - 2) + i;
+                if (pageNum > totalPages) return null;
+                return (
+                  <Link key={pageNum} href={`/post?page=${pageNum}`}>
+                    <Button
+                      variant={pageNum === page ? "default" : "outline"}
+                      size="sm"
+                    >
+                      {pageNum}
+                    </Button>
+                  </Link>
+                );
+              })}
+
+              {page < totalPages ? (
+                <Link href={`/post?page=${page + 1}`}>
+                  <Button variant="outline" size="sm">
+                    Next
+                  </Button>
+                </Link>
+              ) : (
+                <Button variant="outline" size="sm" disabled>
+                  Next
+                </Button>
+              )}
+            </div>
+          )}
           <p className="text-sm text-muted-foreground text-center">
             Only recent posts are shown here. Click{" "}
             <Link href="/post/removed" className="underline">

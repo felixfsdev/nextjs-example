@@ -164,13 +164,6 @@ export default async function PostPage({ searchParams }: PostPageProps) {
               )}
             </div>
           )}
-          <p className="text-sm text-muted-foreground text-center">
-            Some posts were removed from this feed. Click{" "}
-            <Link href="/post/removed" className="underline">
-              here
-            </Link>{" "}
-            to read them.
-          </p>
         </div>
       )}
     </ProseContainer>

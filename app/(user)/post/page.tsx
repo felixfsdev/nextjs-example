@@ -7,13 +7,13 @@ import { auth } from "@/auth";
 import { ProseContainer } from "@/components/typography/prose";
 import { AdminBadge, FeaturedBadge } from "@/components/ui/badges";
 import { Role } from "@/prisma/src/generated/prisma/enums";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 interface PostPageProps {
   searchParams: Promise<{ page?: string }>;
 }
 
 export default async function PostPage({ searchParams }: PostPageProps) {
-  const session = await auth();
   const params = await searchParams;
   const page = parseInt(params.page || "1", 10);
   const limit = 10;
@@ -122,12 +122,14 @@ export default async function PostPage({ searchParams }: PostPageProps) {
             <div className="flex items-center justify-center gap-2 mt-8">
               {page > 1 ? (
                 <Link href={`/post?page=${page - 1}`}>
-                  <Button variant="outline" size="sm">
+                  <Button variant="ghost" size="sm">
+                    <ArrowLeft size={16} />
                     Previous
                   </Button>
                 </Link>
               ) : (
-                <Button variant="outline" size="sm" disabled>
+                <Button variant="ghost" size="sm" disabled>
+                  <ArrowLeft size={16} />
                   Previous
                 </Button>
               )}
@@ -149,13 +151,15 @@ export default async function PostPage({ searchParams }: PostPageProps) {
 
               {page < totalPages ? (
                 <Link href={`/post?page=${page + 1}`}>
-                  <Button variant="outline" size="sm">
+                  <Button variant="ghost" size="sm">
                     Next
+                    <ArrowRight size={16} />
                   </Button>
                 </Link>
               ) : (
-                <Button variant="outline" size="sm" disabled>
+                <Button variant="ghost" size="sm" disabled>
                   Next
+                  <ArrowRight size={16} />
                 </Button>
               )}
             </div>

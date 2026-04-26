@@ -21,8 +21,8 @@ export async function createPost(data: { title: string; content: string }) {
     return { error: "Content is required." };
   }
 
-  if (title.length > 50) {
-    return { error: "Title is longer than 50 characters." };
+  if (title.length > 100) {
+    return { error: "Title is longer than 100 characters." };
   }
 
   if (content.length > 5000) {

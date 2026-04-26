@@ -165,11 +165,11 @@ export default async function PostPage({ searchParams }: PostPageProps) {
             </div>
           )}
           <p className="text-sm text-muted-foreground text-center">
-            Only recent posts are shown here. Click{" "}
+            Some posts were removed from this feed. Click{" "}
             <Link href="/post/removed" className="underline">
               here
             </Link>{" "}
-            to view removed posts.
+            to read them.
           </p>
         </div>
       )}

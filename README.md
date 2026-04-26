@@ -2,10 +2,15 @@
 
 🔥 See it in action: <https://nextjs-example-six-nu.vercel.app/>
 
-## Notes
+## Instructions
 
-1. Run `npx prisma generate` to generate the prisma client.
-2. Run `npx vercel env pull` to download environment variables.
+Run `npm install` or `npm i` to install the dependencies.
+
+If you haven't already, install the Vercel CLI using `npm i -g vercel` and login using the command `vercel login`. Link the project using `vercel link` and run `vercel env pull` to download the environment variables.
+
+Run `npx prisma generate` to generate the prisma client.
+
+Now, you can start the development server using `npm run dev` and build the app using `npm run build`. Run `npm start` to run the build. Note that the build may not support auth.
 
 ## Recommended VS Code extensions
 

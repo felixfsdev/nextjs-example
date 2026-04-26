@@ -3,8 +3,16 @@
 import { auth } from "@/auth";
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import { hasPermissionToCreatePost } from "../utils";
 
 export async function createPost(data: { title: string; content: string }) {
+  if (!hasPermissionToCreatePost()) {
+    return {
+      error:
+        "You do not have the permission to create a post today. Please try again later",
+    };
+  }
+
   const session = await auth();
   if (!session?.user?.id) {
     return { error: "Unauthorized" };

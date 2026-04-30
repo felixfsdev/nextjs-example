@@ -14,11 +14,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import CenterContainer from "@/components/layout/center-container";
 
 export default function SignIn() {
   return (
-    <CenterContainer>
+    <div className="flex flex-col min-h-dvh items-center justify-center">
       <Card className="w-full max-w-lg m-4">
         <CardHeader>
           <CardTitle>Sign in</CardTitle>
@@ -71,6 +70,6 @@ export default function SignIn() {
           </div>
         </CardContent>
       </Card>
-    </CenterContainer>
+    </div>
   );
 }

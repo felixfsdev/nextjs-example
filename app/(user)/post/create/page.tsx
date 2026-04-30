@@ -1,9 +1,7 @@
 import { auth } from "@/auth";
-import prisma from "@/lib/prisma";
 import CreatePostForm from "./_components/create-post-form";
 import HasPosted from "./_components/has-posted";
 import { redirect } from "next/navigation";
-import CenterContainer from "@/components/layout/center-container";
 import { hasPermissionToCreatePost } from "./utils";
 
 export default async function CreatePostPage() {
@@ -14,7 +12,7 @@ export default async function CreatePostPage() {
   }
 
   return (
-    <CenterContainer>
+    <div className="flex flex-col w-full flex-1 justify-center items-center p-4 gap-4">
       <div className="w-full max-w-2xl p-2 sm:p-4">
         {(await hasPermissionToCreatePost()) ? (
           <CreatePostForm />
@@ -22,6 +20,6 @@ export default async function CreatePostPage() {
           <HasPosted />
         )}
       </div>
-    </CenterContainer>
+    </div>
   );
 }

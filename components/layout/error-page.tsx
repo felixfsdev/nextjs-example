@@ -1,6 +1,3 @@
-import { ReactNode } from "react";
-import CenterContainer from "./center-container";
-
 export default function ErrorPage({
   title,
   description,
@@ -9,13 +6,13 @@ export default function ErrorPage({
   description?: string;
 }) {
   return (
-    <CenterContainer>
+    <div>
       <div className="flex flex-col items-center justify-center gap-2">
         <h1 className="text-2xl font-bold font-heading">{title || "Oops!"}</h1>
         <p className="text-muted-foreground">
           {description || "An error occurred"}
         </p>
       </div>
-    </CenterContainer>
+    </div>
   );
 }

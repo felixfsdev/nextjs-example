@@ -29,9 +29,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "w-full min-h-dvh antialiased",
           geistSans.variable, // This allows us to use --font-geist-sans variable in our CSS
           geistMono.variable, // This allows us to use --font-geist-mono variable in our CSS
+          "antialiased",
         )}
       >
         <ThemeProvider>

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import prisma from "@/lib/prisma";
 import Link from "next/link";
 import Image from "next/image";
-import { PenLine, TriangleAlert } from "lucide-react";
+import { Calendar, PenLine, TriangleAlert } from "lucide-react";
 import { DeletePostDialog } from "./_components/delete-post-dialog";
 import { auth } from "@/auth";
 import {
@@ -39,7 +39,21 @@ export default async function PostPage({
       <Prose>
         <h1>{post!.title}</h1>
         <div className="not-prose flex items-center gap-2 text-muted-foreground text-sm">
-          <p>By {post.author.name}</p>
+          <Image
+            src={String(post.author.image)}
+            alt="Author Image"
+            width={24}
+            height={24}
+            className="rounded-full border size-6"
+          />
+          <p>
+            By{" "}
+            <span className="underline underline-offset-2">
+              {post.author.name}
+            </span>
+          </p>
+          <Calendar className="size-4" />
+          <p>{post.createdAt.toLocaleDateString()}</p>
           {post.author.role === Role.ADMIN && (
             <>
               <AdminBadge />

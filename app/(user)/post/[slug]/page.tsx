@@ -92,7 +92,7 @@ export default async function PostPage({
             <p>You are the owner of this post.</p>
             <div className="flex gap-2">
               <Link href={`/post/edit/${post.id}`}>
-                <Button>
+                <Button variant="outline">
                   <PenLine className="size-4" />
                   Edit Post
                 </Button>

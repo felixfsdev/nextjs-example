@@ -47,10 +47,7 @@ export default async function PostPage({
             className="rounded-full border size-6"
           />
           <p>
-            By{" "}
-            <span className="underline underline-offset-2">
-              {post.author.name}
-            </span>
+            By <span className="italic">{post.author.name}</span>
           </p>
           <Calendar className="size-4" />
           <p>{post.createdAt.toLocaleDateString()}</p>

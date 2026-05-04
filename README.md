@@ -34,6 +34,10 @@ The following VS Code configuration ensures the extension recognizes and provide
 }
 ```
 
+## Notes
+
+Theme: Tiesen (from <tweakcn.com>).
+
 ## Docs
 
 - Next.js: <https://nextjs.org/docs>

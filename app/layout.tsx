@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Noto_Serif_Georgian, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fontSans = Geist({
   subsets: ["latin"],
+  variable: "--font-sans",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fontSerif = Noto_Serif_Georgian({
   subsets: ["latin"],
+  variable: "--font-serif",
+});
+
+const fontMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -29,8 +34,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          geistSans.variable, // This allows us to use --font-geist-sans variable in our CSS
-          geistMono.variable, // This allows us to use --font-geist-mono variable in our CSS
+          fontSans.variable, // This allows us to use --font-sans variable in our CSS
+          fontSerif.variable, // This allows us to use --font-serif variable in our CSS
+          fontMono.variable, // This allows us to use --font-mono variable in our CSS
           "antialiased",
         )}
       >
